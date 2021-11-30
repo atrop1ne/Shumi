@@ -86,6 +86,8 @@ class CardStatus(models.Model):
 
 class Card(models.Model):
     owner = models.ForeignKey("Profile", verbose_name="Profile", on_delete=models.CASCADE, related_name="card_owner")
+    title = models.CharField(verbose_name="Title", max_length=100, null=True, blank=True)
+    description = models.TextField(verbose_name="Description", null=True, blank=True)
     participants = models.ManyToManyField("Profile", verbose_name="Participants", blank=True)
     category = models.ForeignKey("Category", verbose_name="Category", on_delete=models.SET_NULL, null=True, blank=True)
     tag = models.ManyToManyField("Tag", verbose_name="Tag", blank=True)
