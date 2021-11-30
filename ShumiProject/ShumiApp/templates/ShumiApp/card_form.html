@@ -1,6 +1,7 @@
 <form action="" method="POST" class="card_form">
     {% csrf_token %}
-    <input type="text" name="card_title">
+    <input type="text" name="card_title" autocomplete="off">
     <textarea name="card_description"></textarea>
+    <input type="number" min="1" max="50">
     <button type="submit" class="control_button">Сохранить</button>
 </form>

@@ -1,0 +1,21 @@
+{% extends 'ShumiApp/base.html' %}
+
+{%block content%}
+    {% include 'ShumiApp/navigation.html' %}
+    <div class="card_wrapper">    
+        {% for card in cards %}
+        <div class="card_face">
+            <div class="card_content">
+                <div class="card_title">
+                    {{card.title}}
+                </div>
+                <div class="card_description">
+                    {{card.description}}
+                </div>
+                <!-- <div class="card_photos">
+                    <div class="card_photo_wrapper">
+                    </div>
+                </div> -->
+        {% endfor %}
+    </div>
+{%endblock%}
