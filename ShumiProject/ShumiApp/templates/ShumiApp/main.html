@@ -12,10 +12,17 @@
                 <div class="card_description">
                     {{card.description}}
                 </div>
-                <!-- <div class="card_photos">
-                    <div class="card_photo_wrapper">
-                    </div>
-                </div> -->
+                {%if card.images%}
+                <div class="card_images">
+                    {%for cardimage in card.images%}
+                        <div class="card_image_wrapper">
+                            <img src="{{cardimage.image.url}}">
+                        </div>
+                    {%endfor%}
+                </div>
+                {%endif%}
+            </div>
+        </div>
         {% endfor %}
     </div>
 {%endblock%}

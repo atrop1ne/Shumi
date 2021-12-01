@@ -101,6 +101,10 @@ class Card(models.Model):
         verbose_name = "Card"
         verbose_name_plural = "Cards"
 
+    @property
+    def images(self):
+        return CardImage.objects.filter(card = self)
+
 class CardImage(models.Model):
     card = models.ForeignKey("Card", verbose_name="Card", on_delete=models.CASCADE)
     is_main = models.BooleanField(verbose_name="Is main")

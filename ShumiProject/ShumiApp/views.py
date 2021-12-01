@@ -3,8 +3,7 @@ from django.contrib.auth.models import User
 from .models import *
 
 def main(request):
-    user = User.objects.get(pk = request.user.pk)
-    cards = Card.objects.filter(owner = user.profile)
+    cards = Card.objects.all()
 
     context = {
         'title' : 'Главная',
@@ -21,6 +20,18 @@ def card_create(request):
         card.owner = user.profile
         card.title = request.POST.get("card_title")
         card.description = request.POST.get("card_description")
+        max_people_count = request.POST.get("card_max_people_count")
+        if max_people_count:
+            card.max_people_count = max_people_count
+        card.save()
+        images = request.FILES.getlist("card_images")
+        if images:
+            for image in images:
+                card_image = CardImage()
+                card_image.card = card
+                card_image.is_main = False
+                card_image.image = image
+                card_image.save()
         card.save()
         # return redirect('main')
     else:
