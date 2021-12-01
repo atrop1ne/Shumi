@@ -1,39 +1,68 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/navigation.css' %}">
 <nav>
     <ul>
-        <li>
+        <li class="nav_element">
             <a href="">
                 <div class="nav_button">
                     <div class="material-icons-round">person</div>
                 </div>
             </a>
+            <div class="nav_button_description">
+                <p>Профиль</p>
+            </div>
         </li>
-        <li>
+        <li class="nav_element">
             <a href="{%url 'main'%}">
                 <div class="nav_button">
                     <div class="material-icons-round">search</div>
                 </div>
             </a>
+            <div class="nav_button_description">
+                <p>Поиск</p>
+            </div>
         </li>
-        <li>
+        <li class="nav_element">
             <a href="">
                 <div class="nav_button">
                     <div class="material-icons-round">chat</div>
                 </div>
             </a>
+            <div class="nav_button_description">
+                <p>Чаты</p>
+            </div>
         </li>
-        <li>
+        <li class="nav_element">
             <a href="">
                 <div class="nav_button">
                     <div class="material-icons-round">notifications</div>
                 </div>
             </a>
+            <div class="nav_button_description">
+                <p>Уведомления</p>
+            </div>
         </li>
-        <li>
+        <li class="nav_element">
             <a href="">
                 <div class="nav_button">
                     <div class="material-icons-round">archive</div>
                 </div>
             </a>
+            <div class="nav_button_description">
+                <p>Архив</p>
+            </div>
+        </li>
+        <li class="nav_element logout_button">
+            <a href="">
+                <div class="nav_button">
+                    <div class="material-icons-round">logout</div>
+                </div>
+            </a>
+            <div class="nav_button_description">
+                <p>Выход</p>
+            </div>
         </li>
     </ul>
 </nav>
+
+<script src="{% static 'js/navigation.js' %}"></script>
