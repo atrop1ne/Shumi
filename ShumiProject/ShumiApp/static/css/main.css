@@ -1,0 +1,100 @@
+:root{
+    --window_height: 100vh;
+    --card_margin_y: 30px;
+    --card_height: calc(var(--window_height) - calc(var(--card_margin_y) * 2));
+}
+
+.card_wrapper{
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1.3fr;
+    width: 100%;
+}
+
+.card_face{
+    max-width: 100%;
+    grid-column: 2;
+    min-height: var(--card_height);
+    background-color: var(--main_color);
+    border-radius: 10px;
+    margin: var(--card_margin_y) 0px;
+    transition: 0.2s;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+.card_content{
+    height: calc(var(--card_height) - 80px);
+    overflow: hidden;
+    padding: 0px 25px;
+}
+
+.card_title{
+    font-size: 24px;
+}
+
+.card_description{
+    font-size: 18px;
+}
+
+.card_images{
+    width: 100%;
+}
+
+.card_image_wrapper{
+    max-width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    margin: 0 0 5px;
+    background-size: cover;
+}
+
+img{
+    width: 100%;
+}
+
+.buttons_wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    width: 100%;
+    padding: 15px 0px;
+}
+
+.card_button{
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+    border: none;
+    justify-self: center;
+    color: #fff;
+    transition: 0.2s;
+    cursor: pointer;
+    line-height: 0;
+}
+
+.card_button .material-icons-round{
+    font-size: 28px;
+}
+
+.yes{
+    background-color: rgb(72, 250, 66);
+}
+
+.message{
+    background-color: rgb(66, 152, 250);
+}
+
+.no{
+    background-color: rgb(255, 46, 46);
+}
+
+.yes:hover{
+    background-color: rgb(110, 255, 105);
+}
+
+.message:hover{
+    background-color: rgb(94, 169, 255);
+}
+
+.no:hover{
+    background-color: rgb(255, 71, 71);
+}
