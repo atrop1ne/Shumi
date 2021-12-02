@@ -2,34 +2,51 @@
 {% load static %}
 
 {%block content%}
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
-    {% include 'ShumiApp/navigation.html' %}
-    <div class="card_wrapper">    
-        {% for card in cards %}
-        <div class="card_face">
-            <div class="card_content">
-                <div class="card_title">
-                    {{card.title}}
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+{% include 'ShumiApp/navigation.html' %}
+<div class="card_wrapper">
+    {% for card in cards %}
+    <div class="card_face">
+        <div class="card_user_info">
+            <div class="card_user_image_wrapper"><img src="{{card.owner.avatar.url}}" class="card_user_image"></div>
+            <div class="card_user_name">{{card.owner.user.username}}</div>
+        </div>
+        <div class="card_content">
+            <div class="card_text_content">
+                <div class="card_title_and_counter">
+                    <div class="card_title">
+                        {{card.title}}
+                    </div>
+                    <div class="card_counter">
+                        {{card.current_people_count}}/{{card.max_people_count}}
+                    </div>
                 </div>
                 <div class="card_description">
                     {{card.description}}
                 </div>
-                {%if card.images%}
-                <div class="card_images">
-                    {%for cardimage in card.images%}
-                        <div class="card_image_wrapper">
-                            <img src="{{cardimage.image.url}}">
-                        </div>
-                    {%endfor%}
+            </div>
+            {%if card.images%}
+            <div class="card_images">
+                {%for cardimage in card.images%}
+                <div class="card_image_wrapper">
+                    <img src="{{cardimage.image.url}}" class="card_image">
                 </div>
-                {%endif%}
+                {%endfor%}
             </div>
-            <div class="buttons_wrapper">
-                <button class="card_button no"><div class="material-icons-round">close</div></button>
-                <button class="card_button message"><div class="material-icons-round">mail</div></button>
-                <button class="card_button yes"><div class="material-icons-round">add</div></button>
-            </div>
+            {%endif%}
         </div>
-        {% endfor %}
+        <div class="buttons_wrapper">
+            <button class="card_button no">
+                <div class="material-icons-round">close</div>
+            </button>
+            <button class="card_button message">
+                <div class="material-icons-round">mail</div>
+            </button>
+            <button class="card_button yes">
+                <div class="material-icons-round">add</div>
+            </button>
+        </div>
     </div>
+    {% endfor %}
+</div>
 {%endblock%}

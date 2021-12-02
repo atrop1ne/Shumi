@@ -2,6 +2,11 @@
     --window_height: 100vh;
     --card_margin_y: 30px;
     --card_height: calc(var(--window_height) - calc(var(--card_margin_y) * 2));
+    --card_user_image_wrapper_size: 60px;
+    --card_user_info_padding_y: 25px;
+    --card_content_height: calc(var(--card_height) - 70px - var(--card_user_image_wrapper_size) - calc(var(--card_user_info_padding_y)*2));
+    --card_text_content_height: calc(var(--card_content_height)/2);
+    --card_images_height: calc(var(--card_content_height) - var(--card_text_content_height))
 }
 
 .card_wrapper{
@@ -11,7 +16,7 @@
 }
 
 .card_face{
-    max-width: 100%;
+    max-width: 500px;
     grid-column: 2;
     min-height: var(--card_height);
     background-color: var(--main_color);
@@ -19,16 +24,60 @@
     margin: var(--card_margin_y) 0px;
     transition: 0.2s;
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
+    padding: 0px 25px;
+}
+
+.card_user_info{
+    padding: var(--card_user_info_padding_y) 0px;
+    border-bottom: 1px solid rgb(51, 51, 51);
+    display: flex;
+    align-items: center;
+}
+
+.card_user_image_wrapper{
+    overflow: hidden;
+    background-size: cover;
+    width: 60px;
+    height: 60px;
+    border-radius: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card_user_name{
+    padding-left: 25px;
+    font-size: 26px;
+}
+
+.card_user_image{
+    height: 100%;
+    justify-self: center;
 }
 
 .card_content{
-    height: calc(var(--card_height) - 80px);
+    height: var(--card_content_height);
     overflow: hidden;
-    padding: 0px 25px;
+}
+
+.card_text_content{
+    height: var(--card_text_content_height);
+    overflow: hidden;
+} 
+
+.card_title_and_counter{
+    padding: 15px 0px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr auto;
 }
 
 .card_title{
     font-size: 24px;
+}
+
+.card_counter{
+    justify-self: right;
 }
 
 .card_description{
@@ -36,19 +85,27 @@
 }
 
 .card_images{
+    position: relative;
+    height: var(--card_images_height);
+    padding-top: 10px;
+    overflow: hidden;
     width: 100%;
 }
 
 .card_image_wrapper{
-    max-width: 100%;
+    height: 100%;
     overflow: hidden;
     border-radius: 10px;
     margin: 0 0 5px;
     background-size: cover;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
-img{
-    width: 100%;
+.card_image{
+    height: 100%;
+    /* width: 100%; */
 }
 
 .buttons_wrapper{
@@ -56,7 +113,7 @@ img{
     grid-template-columns: 1fr 1fr 1fr;
     text-align: center;
     width: 100%;
-    padding: 15px 0px;
+    padding: 10px 0px;
 }
 
 .card_button{
