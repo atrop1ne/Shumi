@@ -5,7 +5,7 @@
     --card_user_image_wrapper_size: 60px;
     --card_user_info_padding_y: 25px;
     --card_content_height: calc(var(--card_height) - 70px - var(--card_user_image_wrapper_size) - calc(var(--card_user_info_padding_y)*2));
-    --card_text_content_height: calc(var(--card_content_height)/2);
+    --card_text_content_height: 250px;
     --card_images_height: calc(var(--card_content_height) - var(--card_text_content_height))
 }
 
@@ -58,10 +58,11 @@
 .card_content{
     height: var(--card_content_height);
     overflow: hidden;
+    cursor: pointer;
 }
 
 .card_text_content{
-    height: var(--card_text_content_height);
+    min-height: var(--card_text_content_height);
     overflow: hidden;
 } 
 
@@ -85,27 +86,24 @@
 }
 
 .card_images{
-    position: relative;
     height: var(--card_images_height);
-    padding-top: 10px;
+    min-height: var(--card_images_height);
     overflow: hidden;
-    width: 100%;
 }
 
 .card_image_wrapper{
     height: 100%;
+    width: auto;
     overflow: hidden;
-    border-radius: 10px;
-    margin: 0 0 5px;
     background-size: cover;
-    max-width: 100%;
     display: flex;
     justify-content: center;
+    padding: 5px 0;
 }
 
 .card_image{
     height: 100%;
-    /* width: 100%; */
+    border-radius: 10px;
 }
 
 .buttons_wrapper{
@@ -154,4 +152,19 @@
 
 .no:hover{
     background-color: rgb(255, 71, 71);
+}
+
+.no_clicked{
+    transform: translateX(-50px);
+    opacity: 0;
+}
+
+.yes_clicked{
+    transform: translateX(50px);
+    opacity: 0;
+}
+
+.card_content_full{
+    height: auto;
+    overflow: auto;
 }
