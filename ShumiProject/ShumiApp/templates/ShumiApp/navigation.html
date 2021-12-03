@@ -1,5 +1,9 @@
 {% load static %}
+{% load socialaccount%}
+{% providers_media_js %}
 <link rel="stylesheet" href="{% static 'css/navigation.css' %}">
+
+{% if request.user.is_authenticated %}
 <nav>
     <ul>
         <li class="nav_element">
@@ -53,7 +57,7 @@
             </div>
         </li>
         <li class="nav_element logout_button">
-            <a href="">
+            <a href='accounts/logout'>
                 <div class="nav_button">
                     <div class="material-icons-round">logout</div>
                 </div>
@@ -64,5 +68,7 @@
         </li>
     </ul>
 </nav>
+
+{% endif %} 
 
 <script src="{% static 'js/navigation.js' %}"></script>
