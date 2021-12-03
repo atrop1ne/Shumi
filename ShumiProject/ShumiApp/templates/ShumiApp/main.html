@@ -6,7 +6,7 @@
 {% include 'ShumiApp/navigation.html' %}
 <div class="card_wrapper">
     {% for card in cards %}
-    <div class="card_face">
+    <div class="card_face" data-id = "{{card.id}}">
         <div class="card_user_info">
             <div class="card_user_image_wrapper">
                 {% if card.owner.avatar %}
