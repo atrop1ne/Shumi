@@ -25,15 +25,15 @@
                     {{card.description}}
                 </div>
             </div>
-            {%if card.images%}
             <div class="card_images">
-                {%for cardimage in card.images%}
-                <div class="card_image_wrapper">
-                    <img src="{{cardimage.image.url}}" class="card_image">
-                </div>
-                {%endfor%}
+                {%if card.images%}
+                    {%for cardimage in card.images%}
+                    <div class="card_image_wrapper">
+                        <img src="{{cardimage.image.url}}" class="card_image">
+                    </div>
+                    {%endfor%}
+                {%endif%}
             </div>
-            {%endif%}
         </div>
         <div class="buttons_wrapper">
             <button class="card_button no">

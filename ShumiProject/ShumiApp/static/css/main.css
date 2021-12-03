@@ -19,7 +19,6 @@
     max-width: 500px;
     grid-column: 2;
     min-height: var(--card_height);
-    background-color: var(--main_color);
     border-radius: 10px;
     margin: var(--card_margin_y) 0px;
     transition: 0.2s;
@@ -83,6 +82,7 @@
 
 .card_description{
     font-size: 18px;
+    overflow: auto;
 }
 
 .card_images{
@@ -99,6 +99,7 @@
     display: flex;
     justify-content: center;
     padding: 5px 0;
+    border-radius: 10px;
 }
 
 .card_image{
@@ -120,7 +121,6 @@
     border-radius: 15px;
     border: none;
     justify-self: center;
-    color: #fff;
     transition: 0.2s;
     cursor: pointer;
     line-height: 0;
@@ -128,6 +128,7 @@
 
 .card_button .material-icons-round{
     font-size: 28px;
+    color: #fff;
 }
 
 .yes{
