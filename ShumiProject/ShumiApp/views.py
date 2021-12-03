@@ -16,6 +16,21 @@ def main(request):
 
     return render(request, "ShumiApp/main.html", context)
 
+def profile(request, id):
+    
+    if id == "my" :
+        user = User.objects.get(pk = request.user.pk)
+
+    else: 
+        user = User.objects.get(pk = int(id))
+        
+    context = {
+        'title' : 'Профиль',
+    }
+
+    return render(request, "ShumiApp/profile.html", context)
+
+
 def card_create(request):
     user = User.objects.get(pk = request.user.pk)
 
