@@ -37,9 +37,26 @@ def card_create(request):
                 card_image.image = image
                 card_image.save()
         card.save()
-        # return redirect('main')
+        return redirect('profile')
     else:
         return render(request, "ShumiApp/card_create_page.html", {'title': 'Создать карточку'})
+
+def profile(request, id):
+    my = False
+    if id == "my" :
+        user = User.objects.get(pk = request.user.pk)
+        my = True
+
+    else: 
+        user = User.objects.get(pk = int(id))
+
+    context = {
+        'title' : 'Профиль',
+        'user' : user,
+        'my' : my,
+    }
+
+    return render(request, "ShumiApp/profile.html", context)
 
 def card_to_archive(request, card_id, archive_param):
     user = User.objects.get(pk = request.user.pk)

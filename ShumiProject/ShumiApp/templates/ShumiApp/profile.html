@@ -1,0 +1,32 @@
+{% extends 'ShumiApp/base.html' %}
+{% load static %}
+
+{%block content%}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% include 'ShumiApp/navigation.html' %}
+
+<div class="profile_wrapper">
+    <div class = "profile_user_info">
+        <div class="card_user_image_wrapper">
+            {%if user.profile.avatar%}
+                <img class="card_user_image" src="{{user.profile.avatar.url}}">
+            {%else%}
+                {%if my == True%}
+                    {% if user.socialaccount_set.all.0.get_avatar_url %}
+                        <img class="card_user_image" src='{{ user.socialaccount_set.all.0.get_avatar_url }}'>
+                    {%endif%}
+                {%else%}
+                    <img class="card_user_image" src='https://iupac.org/wp-content/uploads/2018/05/default-avatar.png'>
+                {%endif%}
+            {%endif%}
+        </div>
+        <div>
+            {{user.username}}
+        </div>
+        {%if my == True%}
+            <a href="{%url 'card_create'%}">Добавить карточку</a>
+        {%endif%}
+    </div>
+</div>
+
+{%endblock%}
