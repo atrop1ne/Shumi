@@ -7,7 +7,7 @@
 <nav>
     <ul>
         <li class="nav_element">
-            <a href="">
+            <a href="{% url 'profile_user' 'my' %}">
                 <div class="nav_button">
                     <div class="material-icons-round">person_outline</div>
                 </div>
@@ -57,7 +57,7 @@
             </div>
         </li>
         <li class="nav_element logout_button">
-            <a href='accounts/logout'>
+            <a href="accounts/logout">
                 <div class="nav_button">
                     <div class="material-icons-round">logout</div>
                 </div>

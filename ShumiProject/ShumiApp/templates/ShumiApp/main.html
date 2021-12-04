@@ -19,7 +19,9 @@
                     {% endif %}
                 {% endif %}
             </div>
-            <div class="card_user_name">{{card.owner.user.username}}</div>
+            <a href = "{% url 'profile_user' card.owner.id %}">
+                <div class="card_user_name">{{card.owner.user.username}}</div>
+            </a>
         </div>
         <div class="card_content">
             <div class="card_text_content">
