@@ -2,10 +2,6 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from .models import *
 
-def welcome(request):
-    context = {'title': 'Добро пожаловать'}
-    return render(request, 'ShumiApp/welcome.html', context)
-
 def main(request):
     cards = Card.objects.all()
 
