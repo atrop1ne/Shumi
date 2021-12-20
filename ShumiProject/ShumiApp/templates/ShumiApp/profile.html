@@ -20,12 +20,28 @@
                 {%endif%}
             {%endif%}
         </div>
-        <div>
-            {{user.username}}
+        <div class="profile_user_name_and_buttons">
+            <div class="profile_user_name">
+                {{user.username}}
+            </div>
+            <div class="profile_buttons">
+                {%if my == True%}
+                    <a href="{%url 'card_create'%}"><div class="profile_service_button">Добавить карточку</div></a>
+                    <div class="profile_service_button">Мои контакты</div>
+                {% else %}
+                    <div class="profile_service_button">Добавить в контакты</div>
+                    <div class="profile_service_button">Посмотреть контакты</div>
+                {%endif%}
+            </div>
         </div>
+    </div>
+    <div class="profile_cards_wrapper">
         {%if my == True%}
-            <a href="{%url 'card_create'%}">Добавить карточку</a>
+            <h3 class="profile_cards_header">Мои карточки:</h3>
+        {% else %}
+            <h3 class="profile_cards_header">Карточки пользователя:</h3>
         {%endif%}
+        <div class="cards_wrapper"></div>
     </div>
 </div>
 

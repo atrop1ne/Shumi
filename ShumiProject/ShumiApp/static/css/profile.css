@@ -5,7 +5,13 @@
 }
 
 .profile_user_info{
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid grey;
     grid-column: 2;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
 }
 
 .card_user_image_wrapper{
@@ -21,4 +27,40 @@
 
 .card_user_image{
     height: 100%;
+}
+
+.profile_user_name_and_buttons{
+    padding-left: 20px;
+    font-size: 14px;
+}
+
+.profile_user_name{
+    font-size: 26px;
+}
+
+.profile_buttons{
+    padding-top: 5px;
+    display: flex;
+}
+
+.profile_service_button{
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    transition: 0.3s;
+    background: linear-gradient(45deg, rgba(51,51,51,0.2) 0%, rgba(51,51,51,0.1) 100%);
+    margin-right: 5px;
+}
+
+.profile_service_button:hover{
+    background-color: rgb(230, 230, 230);
+}
+
+.profile_cards_wrapper{
+    grid-column: 2;
+    padding-top: 60px;
+}
+
+.profile_cards_header{
+    text-align: center;
 }
