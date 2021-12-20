@@ -1,0 +1,38 @@
+:root{
+    --card_height: auto;
+}
+
+.mini_cards_wrapper{
+    grid-column: 2;
+    columns: 2;
+    column-gap: 10px;
+    width: 100%;
+}
+
+.card_face{
+    width: 100%;
+    break-inside: avoid;
+    margin: 3px 0px;
+    transform: translateZ(0);
+    display: inline-block;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
+    min-height: auto;
+    height: auto;
+    padding: 15px;
+}
+
+.card_images{
+    height: auto;
+    min-height: auto;
+}
+
+.card_image_wrapper{
+    height: auto;
+    width: 100%;
+}
+
+.card_image{
+    height:auto;
+    width: 100%;
+}

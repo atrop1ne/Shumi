@@ -1,0 +1,51 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+<link rel="stylesheet" href="{% static 'css/mini_cards.css' %}">
+<div class="mini_cards_wrapper">
+    {% for card in cards %}
+        <div class="card_face">
+            {% if title != "Профиль" %}
+                <div class="card_user_info">
+                    <div class="card_user_image_wrapper">
+                        {% if card.owner.avatar %}
+                            <img src="{{card.owner.avatar.url}}" class="card_user_image">
+                        {% else %}   
+                            {% if user.socialaccount_set.all.0.get_avatar_url %}
+                                <img class="card_user_image" src='{{ user.socialaccount_set.all.0.get_avatar_url }}'>
+                            {% else %}
+                                <img class="card_user_image" src='https://iupac.org/wp-content/uploads/2018/05/default-avatar.png'>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                    <a href = "{% url 'profile_user' card.owner.id %}">
+                        <div class="card_user_name">{{card.owner.user.username}}</div>
+                    </a>
+                </div>
+            {% endif %}
+            <div class="card_content">
+                <div class="card_text_content">
+                    <div class="card_title_and_counter">
+                        <div class="card_title">
+                            {{card.title}}
+                        </div>
+                        <div class="card_counter">
+                            {{card.current_people_count}}/{{card.max_people_count}}
+                        </div>
+                    </div>
+                    <div class="card_description">
+                        {{card.description}}
+                    </div>
+                </div>
+                <div class="card_images">
+                    {%if card.images%}
+                        {%for cardimage in card.images%}
+                        <div class="card_image_wrapper">
+                            <img src="{{cardimage.image.url}}" class="card_image">
+                        </div>
+                        {%endfor%}
+                    {%endif%}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>

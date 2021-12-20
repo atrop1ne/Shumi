@@ -12,21 +12,6 @@ def main(request):
 
     return render(request, "ShumiApp/main.html", context)
 
-def profile(request, id):
-    
-    if id == "my" :
-        user = User.objects.get(pk = request.user.pk)
-
-    else: 
-        user = User.objects.get(pk = int(id))
-        
-    context = {
-        'title' : 'Профиль',
-    }
-
-    return render(request, "ShumiApp/profile.html", context)
-
-
 def card_create(request):
     user = User.objects.get(pk = request.user.pk)
 
@@ -48,7 +33,7 @@ def card_create(request):
                 card_image.image = image
                 card_image.save()
         card.save()
-        return redirect('profile')
+        return redirect('profile_user')
     else:
         return render(request, "ShumiApp/card_create_page.html", {'title': 'Создать карточку'})
 
@@ -61,10 +46,13 @@ def profile(request, id):
     else: 
         user = User.objects.get(pk = int(id))
 
+    cards = Card.objects.filter(owner = user.profile)
+
     context = {
         'title' : 'Профиль',
         'user' : user,
         'my' : my,
+        'cards' : cards,
     }
 
     return render(request, "ShumiApp/profile.html", context)
