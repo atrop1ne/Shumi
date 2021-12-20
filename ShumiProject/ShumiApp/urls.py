@@ -11,7 +11,8 @@ urlpatterns = [
     path('main', views.main, name = 'main'),
     path('card_create', views.card_create, name = 'card_create'),
     re_path(r'^profile/(?P<id>\w+)$', views.profile, name = 'profile_user'),
-    path('card_to_archive/<int:card_id>/<str:archive_param>', views.card_to_archive, name = 'card_to_archive')
+    path('card_to_archive/<int:card_id>/<str:archive_param>', views.card_to_archive, name = 'card_to_archive'),
+    path('archive', views.archive, name = 'archive')
 ]
 
 if settings.DEBUG:

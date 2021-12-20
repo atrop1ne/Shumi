@@ -69,3 +69,12 @@ def card_to_archive(request, card_id, archive_param):
 
     card.archive.add(current_archive)
     card.save()
+
+def archive(request):
+    current_archive = CardArchive.objects.get(profile=request.user.profile, status=1)
+    cards = Card.objects.filter(archive = current_archive)
+    context = {
+        'title' : 'Архив',
+        'cards' : cards,
+    }
+    return render(request, "ShumiApp/archive.html", context)

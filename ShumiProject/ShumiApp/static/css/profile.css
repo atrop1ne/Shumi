@@ -58,7 +58,7 @@
 
 .profile_cards_wrapper{
     grid-column: 2;
-    padding: 60px 0px;
+    padding-top: 60px;
 }
 
 .profile_cards_header{

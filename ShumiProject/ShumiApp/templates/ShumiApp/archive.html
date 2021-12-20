@@ -1,0 +1,9 @@
+{% extends 'ShumiApp/base.html' %}
+
+{%block title%}{{title}}{%endblock%}
+
+{%block content%}
+    {% include 'ShumiApp/navigation.html' %}
+    <h3 style="text-align: center; padding-top: 30px;">Архив</h3>
+    {% include 'ShumiApp/mini_cards.html' %}
+{%endblock%}
