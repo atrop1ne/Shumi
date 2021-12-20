@@ -10,6 +10,10 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-    {%block content%}{%endblock%}
+    {% if request.user.is_authenticated %}
+        {%block content%}{%endblock%}
+    {% else %}
+        <a href="{%url 'account_login'%}"><div>Войдите в аккаунт</div></a>
+    {% endif %}
 </body>
 </html>
