@@ -1,0 +1,68 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+li {
+    list-style-type: none;
+}
+
+ul {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+label, #id_remember{
+    position: absolute;
+    visibility: hidden;
+}
+
+input{
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid grey;
+    margin: 5px 0px;
+}
+
+input:focus{
+    border: 1px solid rgb(65, 65, 65);
+}
+
+.form_wrap{
+    width: 450px;
+    padding: 30px;
+    border: 1px solid grey;
+    border-radius: 10px;
+}
+
+.account_additional_functionality, .socialaccount_ballot{
+    text-align: center;
+    font-size: 16px;
+    padding-top: 15px;
+}
+
+.account_additional_functionality *{
+    margin: 10px 0px;
+}
+
+.account_additional_functionality a{
+    font-weight: bold;
+}
+
+.socialaccount_ballot p{
+    margin: 10px 0px;
+}
+
+.vk{
+    display: block;
+    padding: 5px;
+    background-color: #0077FF;
+    color: white;
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}

@@ -19,6 +19,11 @@ function card_add_behavior(button, button_context) {
     button.addEventListener("click", function () {
         card_face.classList.add(button_context + "_clicked")
 
+        let url = "/card_to_archive/" + card_face.dataset.id + "/" + button_context
+        let xhr = new XMLHttpRequest()
+        xhr.open('GET', url, true);
+        xhr.send();
+
         card_on_delete(card_face)
 
         //CARD MESSAGE BEHAVIOR
