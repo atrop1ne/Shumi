@@ -16,6 +16,7 @@
 }
 
 .card_face{
+    width: 400px;
     max-width: 500px;
     grid-column: 2;
     min-height: var(--card_height);
@@ -24,6 +25,7 @@
     transition: 0.2s;
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
     padding: 0px 25px;
+    overflow-wrap: break-word;
 }
 
 .card_user_info{

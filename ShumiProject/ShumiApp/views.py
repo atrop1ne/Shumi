@@ -33,7 +33,7 @@ def card_create(request):
                 card_image.image = image
                 card_image.save()
         card.save()
-        return redirect('profile_user')
+        return redirect('profile/my')
     else:
         return render(request, "ShumiApp/card_create_page.html", {'title': 'Создать карточку'})
 
