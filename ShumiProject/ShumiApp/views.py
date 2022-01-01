@@ -47,15 +47,32 @@ def profile(request, id):
         user = User.objects.get(pk = int(id))
 
     cards = Card.objects.filter(owner = user.profile)
+    contacts = Profile.objects.filter(contact = user.profile)
 
     context = {
         'title' : 'Профиль',
         'user' : user,
         'my' : my,
         'cards' : cards,
+        'contacts' : contacts,
     }
 
     return render(request, "ShumiApp/profile.html", context)
+
+def contact_manipulation(request, id, contact_operation_param):
+    try:
+        profile_on_change_status = Profile.objects.get(id = id)
+        current_profile = Profile.objects.get(user = request.user)
+    except:
+        pass
+
+    if contact_operation_param == 'add':
+        current_profile.contact.add(profile_on_change_status)
+    else:
+        current_profile.contact.remove(profile_on_change_status)
+
+    current_profile.save()
+
 
 def card_to_archive(request, card_id, archive_param):
     user = User.objects.get(pk = request.user.pk)

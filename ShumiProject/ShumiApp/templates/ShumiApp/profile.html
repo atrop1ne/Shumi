@@ -29,7 +29,11 @@
                     <a href="{%url 'card_create'%}"><div class="profile_service_button">Добавить карточку</div></a>
                     <div class="profile_service_button">Мои контакты</div>
                 {% else %}
-                    <div class="profile_service_button">Добавить в контакты</div>
+                    {%if request.user.profile in contacts%}
+                        <div class="profile_service_button contact_manipulation_button" data-id = "{{user.profile.id}}" data-operation = "remove" >Удалить из контактов</div>
+                    {% else %}
+                        <div class="profile_service_button contact_manipulation_button" data-id = "{{user.profile.id}}" data-operation = "add">Добавить в контакты</div>
+                    {%endif%}
                     <div class="profile_service_button">Посмотреть контакты</div>
                 {%endif%}
             </div>
@@ -44,5 +48,5 @@
     </div>
 </div>
 {% include 'ShumiApp/mini_cards.html' %}
-
+<script src="{% static 'js/profile.js' %}"></script>
 {%endblock%}
