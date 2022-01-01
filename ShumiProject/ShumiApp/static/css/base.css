@@ -6,6 +6,7 @@
     margin: 0;
     padding: 0;
     color: rgb(51, 51, 51);
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 *:focus{
@@ -15,10 +16,6 @@
 html {
     overflow-x: hidden;
     margin-right: calc(-1 * (100vw - 100%));
-}
-
-body{
-    font-family: 'Roboto Condensed', sans-serif;
 }
 
 .form_button{

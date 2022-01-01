@@ -4,12 +4,10 @@
 
 <form action="" method="POST" enctype="multipart/form-data" class="card_form">
     {% csrf_token %}
-    <div class="card_title_and_card_max_people_count">
-        <textarea name="card_title" class="card_title" placeholder="Заголовок" required></textarea>
-        <div class="counter_label">
-            <p>Макс. людей</p>
-            <input name="card_max_people_count" type="number" min="1" max="50">
-        </div>
+    <textarea name="card_title" class="card_title" placeholder="Заголовок" required></textarea>
+    <div class="counter_label">
+        <p>Максимум людей</p>
+        <input name="card_max_people_count" type="number" min="1" max="50">
     </div>
     <textarea name="card_description" placeholder="Введите описание карточки..." class="card_description"required></textarea>
     <label for="image-upload" class="card_images_input">Загрузить картинки</label>
