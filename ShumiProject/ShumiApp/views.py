@@ -46,6 +46,9 @@ def profile(request, id):
     else: 
         user = User.objects.get(pk = int(id))
 
+    if user.pk == request.user.pk:
+        my = True
+
     cards = Card.objects.filter(owner = user.profile)
     contacts = Profile.objects.filter(contact = user.profile)
 

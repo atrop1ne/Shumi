@@ -27,18 +27,41 @@
             <div class="profile_buttons">
                 {%if my == True%}
                     <a href="{%url 'card_create'%}"><div class="profile_service_button">Добавить карточку</div></a>
-                    <div class="profile_service_button">Мои контакты</div>
+                    <!-- <div class="profile_service_button">Мои контакты</div> -->
                 {% else %}
                     {%if request.user.profile in contacts%}
                         <div class="profile_service_button contact_manipulation_button" data-id = "{{user.profile.id}}" data-operation = "remove" >Удалить из контактов</div>
                     {% else %}
                         <div class="profile_service_button contact_manipulation_button" data-id = "{{user.profile.id}}" data-operation = "add">Добавить в контакты</div>
                     {%endif%}
-                    <div class="profile_service_button">Посмотреть контакты</div>
+                    <!-- <div class="profile_service_button">Посмотреть контакты</div> -->
                 {%endif%}
             </div>
         </div>
     </div>
+    {%if contacts%}
+    <div class="contacts_container">
+        {%if my == True%}
+            <p>Мои контакты:</p>
+        {%else%}
+            <p>Контакты пользователя:</p>
+        {%endif%}
+        {% for contact in contacts %}
+            <a href="{% url 'profile_user' contact.id %}">
+                <div class="contact_wrapper">
+                    <div class="contact_image_wrapper">
+                        {%if contact.avatar%}
+                            <img class="contact_image" src="{{contact.avatar.url}}">
+                        {%else%}
+                            <img class="contact_image" src='https://iupac.org/wp-content/uploads/2018/05/default-avatar.png'>
+                        {%endif%}
+                    </div>
+                    <div class="contact_name">{{contact.user.username}}</div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+    {%endif%}
     <div class="profile_cards_wrapper">
         {%if my == True%}
             <h3 class="profile_cards_header">Мои карточки:</h3>

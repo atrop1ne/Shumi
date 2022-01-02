@@ -56,6 +56,59 @@
     background-color: rgb(230, 230, 230);
 }
 
+.contacts_container{
+    padding: 5px;
+    border-radius: 10px;
+    position: fixed;
+    right: 60px;
+    max-height: 500px;
+    overflow: auto;
+    width: 250px;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+.contacts_container p{
+    text-align: center;
+    font-size: 18px;
+    padding: 15px 0px;
+}
+
+.contacts_container a{
+    display: block;
+    width: 100%;
+}
+
+.contact_wrapper{
+    padding: 5px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    transition: 0.2s;
+    border-radius: 5px;
+}
+
+.contact_wrapper:hover{
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.contact_image_wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 80px;
+    height: 40px;
+    width: 40px;
+    overflow: hidden;
+}
+
+.contact_name{
+    padding-left: 10px;
+}
+
+.contact_image{
+    height: 100%;
+}
+
 .profile_cards_wrapper{
     grid-column: 2;
     padding-top: 60px;
