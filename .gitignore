@@ -134,6 +134,7 @@ dmypy.json
 
 #vs
 .vs/
+.vscode/
 
 #media
 media/
