@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 a{
     text-decoration: none;
     color: rgb(51, 51, 51);
@@ -16,6 +18,14 @@ li{
     padding: 10px;
     display: flex;
     align-items: center;
+}
+
+.logo{
+    text-align: center;
+    font-family: 'Bebas Neue', cursive;
+    width: 45px; position: absolute;
+    top: 30px;
+    font-size: 20px;
 }
 
 .nav_button{
