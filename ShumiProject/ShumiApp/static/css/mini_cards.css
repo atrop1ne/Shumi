@@ -28,6 +28,10 @@
     padding: 15px;
 }
 
+.card_user_info{
+    padding-top: 10px;
+}
+
 .card_images{
     height: auto;
     min-height: auto;
@@ -41,4 +45,44 @@
 .card_image{
     height:auto;
     width: 100%;
+}
+
+.card_manipulation{
+    text-align: right;
+}
+
+.card_more{
+    cursor: pointer;
+    border-radius: 40px;
+    font-size: 22px;
+    transition: 0.2s;
+}
+
+.card_more:hover{
+    background-color: rgb(219, 219, 219);
+}
+
+.card_more_options_container{
+    background-color: white;
+    position: absolute;
+    right: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
+    display: none;
+}
+
+.card_more_options_container_visible{
+    display: block;
+}
+
+.card_more_option{
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+
+.card_more_option:hover{
+    background-color: rgb(219, 219, 219);
 }

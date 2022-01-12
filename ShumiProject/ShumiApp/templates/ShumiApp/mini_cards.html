@@ -5,7 +5,14 @@
     <div class="mini_cards_wrapper">
         {% for card in cards %}
             <div class="card_face">
+                <div class="card_manipulation">
+                    <span class="material-icons-round card_more">more_vert</span>
+                </div>
                 {% if title != "Профиль" %}
+                    <div class="card_more_options_container" data-id="{{card.id}}">
+                        <div class="card_more_option" data-url="card_remove_from_archive">Убрать из архива</div>
+                        <div class="card_more_option" data-url="card_to_archive">Больше не показывать</div>
+                    </div>
                     <div class="card_user_info">
                         <div class="card_user_image_wrapper">
                             {% if card.owner.avatar %}
@@ -21,6 +28,11 @@
                         <a href = "{% url 'profile_user' card.owner.id %}">
                             <div class="card_user_name">{{card.owner.user.username}}</div>
                         </a>
+                    </div>
+                {% else %}
+                    <div class="card_more_options_container" data-id="{{card.id}}">
+                        <!-- <div class="card_more_option">Редактировать</div> -->
+                        <div class="card_more_option" data-url="card_delete">Удалить</div>
                     </div>
                 {% endif %}
                 <div class="card_content">
@@ -51,3 +63,4 @@
         {% endfor %}
     </div>
 </div>
+<script src="{% static 'js/mini_cards.js' %}"></script>

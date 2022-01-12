@@ -8,7 +8,7 @@ def main(request):
     cards = Card.objects.exclude(
         owner = request.user.profile).exclude(
             archive = current_archive_yes).exclude(
-                archive = current_archive_no)
+                archive = current_archive_no).reverse()
 
     context = {
         'title' : 'Главная',
@@ -16,6 +16,11 @@ def main(request):
     }
 
     return render(request, "ShumiApp/main.html", context)
+
+def card_delete(request, card_id):
+    card = Card.objects.get(id = card_id)
+    if card.owner == request.user.profile:
+        card.delete()
 
 def card_create(request):
     user = User.objects.get(pk = request.user.pk)
@@ -85,14 +90,19 @@ def contact_manipulation(request, id, contact_operation_param):
 def card_to_archive(request, card_id, archive_param):
     user = User.objects.get(pk = request.user.pk)
     card = Card.objects.get(id = card_id)
-    archive_status = 1
+
+    current_yes_archive = CardArchive.objects.get(profile = user.profile, status = 1)
+    current_no_archive = CardArchive.objects.get(profile = user.profile, status = 0)
 
     if archive_param == "no":
-        archive_status = 0
+        card.archive.add(current_no_archive)
+        try:
+            card.archive.remove(current_yes_archive)
+        except:
+            pass
 
-    current_archive = CardArchive.objects.get(profile = user.profile, status = archive_status)
-
-    card.archive.add(current_archive)
+    else:
+        card.archive.add(current_yes_archive)
     card.save()
 
 def archive(request):
@@ -103,3 +113,9 @@ def archive(request):
         'cards' : cards,
     }
     return render(request, "ShumiApp/archive.html", context)
+
+def card_remove_from_archive(request, card_id):
+    current_archive = CardArchive.objects.get(profile=request.user.profile, status=1)
+    card = Card.objects.get(id = card_id)
+    card.archive.remove(current_archive)
+    card.save()
