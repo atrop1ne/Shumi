@@ -3,7 +3,12 @@ from django.contrib.auth.models import User
 from .models import *
 
 def main(request):
-    cards = Card.objects.all()
+    current_archive_yes = CardArchive.objects.get(profile=request.user.profile, status=1)
+    current_archive_no = CardArchive.objects.get(profile=request.user.profile, status=0)
+    cards = Card.objects.exclude(
+        owner = request.user.profile).exclude(
+            archive = current_archive_yes).exclude(
+                archive = current_archive_no)
 
     context = {
         'title' : 'Главная',
