@@ -23,7 +23,7 @@ li{
 .logo{
     text-align: center;
     font-family: 'Bebas Neue', cursive;
-    width: 45px; position: absolute;
+    position: absolute;
     top: 30px;
     font-size: 20px;
 }
