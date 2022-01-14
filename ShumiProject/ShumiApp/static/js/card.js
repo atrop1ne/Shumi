@@ -8,12 +8,21 @@ function card_add_behavior(button, button_context) {
     const card_content = card_face.querySelector(".card_content")
     const card_images = card_face.querySelector(".card_images")
     const card_text_content = card_face.querySelector(".card_text_content")
+    const card_description_hider = card_text_content.querySelector(".card_description_hider")
 
     card_content.addEventListener("click", function () {
         card_face.classList.toggle("card_content_full")
         card_content.classList.toggle("card_content_full")
-        card_images.classList.toggle("card_content_full")
         card_text_content.classList.toggle("card_content_full")
+        card_images.classList.toggle("card_images_full")
+        card_images.querySelectorAll("div, img").forEach(child => {
+            child.classList.toggle("card_images_full")
+        })
+        // childs = card_images.childNodes
+        // card_images.childNodes.forEach(child => {
+        //     child.classList.toggle(".card_images_full")
+        // })
+        card_description_hider.classList.toggle("card_description_hider_hide")
     })
 
     button.addEventListener("click", function () {

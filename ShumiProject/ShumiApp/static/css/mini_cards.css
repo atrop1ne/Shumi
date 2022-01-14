@@ -13,6 +13,7 @@
     columns: 2;
     column-gap: 10px;
     width: 100%;
+    break-inside: avoid;
 }
 
 .card_face{
@@ -20,12 +21,19 @@
     break-inside: avoid;
     margin: 3px 0px;
     transform: translateZ(0);
-    display: inline-block;
     border-radius: 10px;
-    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: none;
+    border: 1px solid grey;
     min-height: auto;
     height: auto;
     padding: 15px;
+    display: block;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.card_content{
+    padding: 0;
 }
 
 .card_user_info{
@@ -70,6 +78,7 @@
     border-radius: 10px;
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
     display: none;
+    z-index: 1;
 }
 
 .card_more_options_container_visible{
@@ -85,4 +94,8 @@
 
 .card_more_option:hover{
     background-color: rgb(219, 219, 219);
+}
+
+.card_text_content{
+    height: auto;
 }

@@ -16,6 +16,7 @@
 }
 
 .card_face{
+    position: relative;
     width: 400px;
     max-width: 500px;
     grid-column: 2;
@@ -60,12 +61,28 @@
     height: var(--card_content_height);
     overflow: hidden;
     cursor: pointer;
+    padding-bottom: 70px;
 }
 
 .card_text_content{
     min-height: var(--card_text_content_height);
+    height: var(--card_text_content_height);
     overflow: hidden;
+    position: relative;
 } 
+
+.card_description_hider{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+}
+
+.card_description_hider_hide{
+    display: none;
+}
 
 .card_title_and_counter{
     padding: 15px 0px;
@@ -84,12 +101,11 @@
 
 .card_description{
     font-size: 18px;
-    overflow: auto;
+    white-space: pre-wrap;
 }
 
 .card_images{
     height: var(--card_images_height);
-    min-height: var(--card_images_height);
     overflow: hidden;
 }
 
@@ -114,6 +130,9 @@
     text-align: center;
     width: 100%;
     padding: 10px 0px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
 }
 
 .card_button{
@@ -168,5 +187,9 @@
 
 .card_content_full{
     height: auto;
-    overflow: auto;
+}
+
+.card_images_full{
+    height: auto !important;
+    width: 100% !important;
 }
