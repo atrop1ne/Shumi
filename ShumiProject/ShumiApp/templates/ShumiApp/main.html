@@ -11,12 +11,8 @@
             <div class="card_user_image_wrapper">
                 {% if card.owner.avatar %}
                     <img src="{{card.owner.avatar.url}}" class="card_user_image">
-                {% else %}   
-                    {% if user.socialaccount_set.all.0.get_avatar_url %}
-                        <img class="card_user_image" src='{{ user.socialaccount_set.all.0.get_avatar_url }}'>
-                    {% else %}
-                        <img class="card_user_image" src='https://iupac.org/wp-content/uploads/2018/05/default-avatar.png'>
-                    {% endif %}
+                {% else %}     
+                    <img class="card_user_image" src='https://iupac.org/wp-content/uploads/2018/05/default-avatar.png'>
                 {% endif %}
             </div>
             <a href = "{% url 'profile_user' card.owner.id %}">

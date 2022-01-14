@@ -14,6 +14,8 @@
                 {%if my == True%}
                     {% if user.socialaccount_set.all.0.get_avatar_url %}
                         <img class="card_user_image" src='{{ user.socialaccount_set.all.0.get_avatar_url }}'>
+                    {%else%}
+                        <img class="card_user_image" src='https://iupac.org/wp-content/uploads/2018/05/default-avatar.png'>
                     {%endif%}
                 {%else%}
                     <img class="card_user_image" src='https://iupac.org/wp-content/uploads/2018/05/default-avatar.png'>
@@ -22,7 +24,11 @@
         </div>
         <div class="profile_user_name_and_buttons">
             <div class="profile_user_name">
-                {{user.username}}
+                {%if user.first_name%}
+                    {{user.first_name}} {{user.last_name}}
+                {%else%}
+                    {{user.username}}
+                {%endif%}
             </div>
             <div class="profile_buttons">
                 {%if my == True%}
